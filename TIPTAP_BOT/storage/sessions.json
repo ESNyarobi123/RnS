@@ -1,0 +1,86 @@
+[
+  {
+    "id": "165515876151525@lid_1776435986489",
+    "_id": "165515876151525@lid_1776435986489",
+    "phoneNumber": "165515876151525@lid",
+    "sessionId": "165515876151525@lid_1776435986489",
+    "businessId": 3,
+    "workerId": null,
+    "tableId": null,
+    "sessionType": "business",
+    "isActive": false,
+    "lastActivity": "2026-04-17T14:27:00.380Z",
+    "currentMenu": "main",
+    "metadata": {
+      "code": "BIZ-IM4G47",
+      "language": "sw",
+      "businessName": "SKY FOOD",
+      "businessType": "restaurant",
+      "workerName": null,
+      "tableName": null,
+      "workerUserId": null,
+      "menuItems": [],
+      "orderDraft": {
+        "items": []
+      }
+    },
+    "createdAt": "2026-04-17T14:26:26.489Z",
+    "updatedAt": "2026-04-17T14:27:00.381Z"
+  },
+  {
+    "id": "165515876151525@lid_1776436048934",
+    "_id": "165515876151525@lid_1776436048934",
+    "phoneNumber": "165515876151525@lid",
+    "sessionId": "165515876151525@lid_1776436048934",
+    "businessId": 3,
+    "workerId": 4,
+    "tableId": null,
+    "sessionType": "worker",
+    "isActive": false,
+    "lastActivity": "2026-04-17T14:27:49.082Z",
+    "currentMenu": "main",
+    "metadata": {
+      "code": "A93BA0B0",
+      "language": "en",
+      "businessName": "SKY FOOD",
+      "businessType": "restaurant",
+      "workerName": "Veronica",
+      "tableName": null,
+      "workerUserId": 8,
+      "menuItems": [],
+      "orderDraft": {
+        "items": []
+      }
+    },
+    "createdAt": "2026-04-17T14:27:28.934Z",
+    "updatedAt": "2026-04-17T14:27:49.082Z"
+  },
+  {
+    "id": "165515876151525@lid_1776436111495",
+    "_id": "165515876151525@lid_1776436111495",
+    "phoneNumber": "165515876151525@lid",
+    "sessionId": "165515876151525@lid_1776436111495",
+    "businessId": 4,
+    "workerId": null,
+    "tableId": null,
+    "sessionType": "business",
+    "isActive": true,
+    "lastActivity": "2026-04-17T14:28:31.495Z",
+    "currentMenu": "main",
+    "metadata": {
+      "code": "BIZ-U8SZ9A",
+      "language": "en",
+      "businessName": "EL salone",
+      "businessType": "salon",
+      "workerName": null,
+      "tableName": null,
+      "workerUserId": null,
+      "menuItems": [],
+      "orderDraft": {
+        "items": []
+      }
+    },
+    "createdAt": "2026-04-17T14:28:31.495Z",
+    "updatedAt": "2026-04-17T14:28:31.495Z"
+  }
+]

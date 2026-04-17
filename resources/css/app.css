@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* === Tipta Brand Palette === */
+    --color-ivory: #EEEBD9;
+    --color-ivory-light: #F7F5EC;
+    --color-ivory-dark: #DDD9C0;
+    --color-smoke: #282427;
+    --color-smoke-light: #3D393C;
+    --color-smoke-muted: #6B6369;
+    --color-terra: #BC6C25;
+    --color-terra-light: #D4893E;
+    --color-terra-dark: #9A5518;
+    --color-terra-50: #FEF6EC;
+    --color-terra-100: #FCEBD5;
+    --color-terra-200: #F8D1A6;
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    --color-accent: var(--color-terra);
+    --color-accent-content: var(--color-terra);
+    --color-accent-foreground: #FFFFFF;
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-terra-light);
+        --color-accent-content: var(--color-terra-light);
+        --color-accent-foreground: var(--color-smoke);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-ivory-dark, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-terra/40 ring-offset-2 ring-offset-white;
+}
