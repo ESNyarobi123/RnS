@@ -210,12 +210,11 @@
 
     {{-- Shift Modal --}}
     <flux:modal name="shift-modal" class="max-w-2xl">
-        <flux:modal.heading>
+        <flux:heading size="lg">
             {{ $editingWorker ? __('Edit Shift') : __('Schedule New Shift') }}
-        </flux:modal.heading>
+        </flux:heading>
 
-        <flux:modal.content>
-            <form wire:submit="saveShift" class="space-y-4">
+        <form wire:submit="saveShift" class="space-y-4">
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <flux:select
                         wire:model="editingWorker"
@@ -291,8 +290,7 @@
                         {{ $editingWorker ? __('Update') : __('Create') }}
                     </flux:button>
                 </div>
-            </form>
-        </flux:modal.content>
+        </form>
     </flux:modal>
 
     @script

@@ -227,24 +227,22 @@
 
     {{-- Worker Details Modal --}}
     <flux:modal name="worker-details-modal" class="max-w-2xl">
-        <flux:modal.heading>
+        <flux:heading size="lg">
             {{ __('{{ $workerTitle }} Details') }}
-        </flux:modal.heading>
+        </flux:heading>
 
-        <flux:modal.content>
-            <div id="worker-details-content">
-                <!-- Content will be loaded dynamically -->
-            </div>
-            
-            <div class="mt-4 flex justify-end">
-                <flux:button
-                    wire:click="$dispatch('close-modal', 'worker-details-modal')"
-                    variant="primary"
-                >
-                    {{ __('Close') }}
-                </flux:button>
-            </div>
-        </flux:modal.content>
+        <div id="worker-details-content">
+            <!-- Content will be loaded dynamically -->
+        </div>
+
+        <div class="mt-4 flex justify-end">
+            <flux:button
+                wire:click="$dispatch('close-modal', 'worker-details-modal')"
+                variant="primary"
+            >
+                {{ __('Close') }}
+            </flux:button>
+        </div>
     </flux:modal>
 
     @script

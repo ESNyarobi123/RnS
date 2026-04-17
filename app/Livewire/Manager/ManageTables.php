@@ -18,12 +18,18 @@ class ManageTables extends Component
     use WithPagination;
 
     public string $search = '';
+
     public string $status = 'all';
 
     public ?Table $editingTable = null;
+
     public string $tableName = '';
+
     public int $capacity = 4;
+
     public string $statusFilter = 'available';
+
+    public bool $showTableModal = false;
 
     protected $queryString = ['search', 'status'];
 
@@ -37,7 +43,7 @@ class ManageTables extends Component
         $this->authorize('create', Table::class);
 
         $this->reset(['editingTable', 'tableName', 'capacity', 'statusFilter']);
-        $this->dispatch('open-modal', 'table-modal');
+        $this->showTableModal = true;
     }
 
     public function edit(Table $table): void
@@ -48,7 +54,7 @@ class ManageTables extends Component
         $this->tableName = $table->name;
         $this->capacity = $table->capacity;
         $this->statusFilter = $table->status;
-        $this->dispatch('open-modal', 'table-modal');
+        $this->showTableModal = true;
     }
 
     public function save(): void
@@ -90,7 +96,7 @@ class ManageTables extends Component
             Flux::toast(variant: 'success', text: __(':label created successfully.', ['label' => $business->tableLabel()]));
         }
 
-        $this->dispatch('close-modal', 'table-modal');
+        $this->showTableModal = false;
         $this->reset(['editingTable', 'tableName', 'capacity', 'statusFilter']);
     }
 
@@ -129,12 +135,12 @@ class ManageTables extends Component
     public function getTablesProperty()
     {
         $business = Auth::user()->businesses()->first();
-        
+
         $query = Table::where('business_id', $business->id)
             ->with(['qrCodes']);
 
         if ($this->search) {
-            $query->where('name', 'like', '%' . $this->search . '%');
+            $query->where('name', 'like', '%'.$this->search.'%');
         }
 
         if ($this->status !== 'all') {
@@ -147,7 +153,7 @@ class ManageTables extends Component
     public function getStatsProperty(): array
     {
         $business = Auth::user()->businesses()->first();
-        
+
         $total = Table::where('business_id', $business->id)->count();
         $available = Table::where('business_id', $business->id)->where('status', 'available')->count();
         $occupied = Table::where('business_id', $business->id)->where('status', 'occupied')->count();
@@ -164,7 +170,7 @@ class ManageTables extends Component
     public function render()
     {
         $business = Auth::user()->businesses()->first();
-        
+
         return view('livewire.manager.manage-tables', [
             'tables' => $this->tables,
             'stats' => $this->stats,

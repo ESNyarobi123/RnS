@@ -86,10 +86,9 @@
         @endif
     </div>
 
-    <flux:modal name="table-modal" class="max-w-md">
-        <flux:modal.heading>{{ $editingTable ? __('Edit :label', ['label' => $singleLabel]) : __('Add :label', ['label' => $singleLabel]) }}</flux:modal.heading>
-        <flux:modal.content>
-            <form wire:submit="save" class="space-y-4">
+    <flux:modal wire:model="showTableModal" class="max-w-md">
+        <flux:heading size="lg">{{ $editingTable ? __('Edit :label', ['label' => $singleLabel]) : __('Add :label', ['label' => $singleLabel]) }}</flux:heading>
+        <form wire:submit="save" class="space-y-4">
                 <flux:input wire:model="tableName" :label="__('Name')" required />
                 <flux:input wire:model="capacity" :label="__('Capacity')" type="number" min="1" max="20" required />
                 <flux:select wire:model="statusFilter" :label="__('Status')" required>
@@ -98,10 +97,9 @@
                     <option value="reserved">{{ __('Reserved') }}</option>
                 </flux:select>
                 <div class="flex justify-end gap-2 pt-4">
-                    <flux:button type="button" wire:click="$dispatch('close-modal', 'table-modal')" variant="ghost">{{ __('Cancel') }}</flux:button>
+                    <flux:button type="button" wire:click="$set('showTableModal', false)" variant="ghost">{{ __('Cancel') }}</flux:button>
                     <flux:button type="submit" class="!bg-terra !text-white hover:!bg-terra-dark">{{ $editingTable ? __('Update') : __('Create') }}</flux:button>
                 </div>
-            </form>
-        </flux:modal.content>
+        </form>
     </flux:modal>
 </div>
